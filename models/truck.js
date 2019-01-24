@@ -7,24 +7,17 @@ const truckSchema = new mongoose.Schema({
     companyName: String,
     driverName: String,
     phoneNumber: String,
-    emailAddress: String,
-    locations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Locations'}]
+    emailAddress: String
   });
 
 truckSchema.set('toJSON', {
   virtuals: true,
   transform(doc, json) {
+    delete json._id;
     delete json.__v;
     return json;
   }
 });
-
-truckSchema
-    .virtual('location', {
-        ref: 'Locations',
-        localField: '_id',
-        foreignField: 'owner'
-    });
 
 var Truck = module.exports = mongoose.model('Truck', truckSchema);
 

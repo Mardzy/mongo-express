@@ -1,4 +1,6 @@
 let router = require('express').Router();
+var Trucks = require("../controllers/trucks");
+var Locations = require("../controllers/locations");
 
 router.get('/', function (req, res) {
     res.json({
@@ -7,24 +9,19 @@ router.get('/', function (req, res) {
     });
 });
 
-var Trucks = require('../controllers/trucks');
-var Locations = require('../controllers/locations');
-
 router.route('/trucks')
     .get(Trucks.index)
-    .post(Trucks.new);
+    .post(Trucks.create);
+
+router
+  .route("/trucks/:truck_id")
+  .get(Trucks.show)
+  .put(Trucks.update)
+  .delete(Trucks.dispose);
 
 router.route('/trucks/:truck_id/locations')
     .get(Locations.index)
-    .post(Locations.new);
+    .post(Locations.create);
 
-router.route('/trucks/:truck_id/locations/:_id')
-    .get(Locations.delete);
-
-router.route('/trucks/:truck_id')
-    .get(Trucks.view)
-    .patch(Trucks.update)
-    .put(Trucks.update)
-    .delete(Trucks.delete);
 
 module.exports = router;

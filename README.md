@@ -62,6 +62,7 @@ Select the Raw check box, and make sure to select JSON from the dropdown
 `http://localhost:8080/api/trucks/:id`
 
 ##### Locations
+
 ###### POST
 `http://localhost:8080/api/trucks/:id/locations`
 Add the following JSON into the body
@@ -72,3 +73,10 @@ Select the Raw check box, and make sure to select JSON from the dropdown
         "lng": 1
 }
 ```
+
+###### Index
+`http://localhost:8080/api/trucks/:id/locations`
+After you have created a location take the id from a truck that has been created and fill the `:id` with its string. 
+
+Link to Postman collection of requests
+https://www.getpostman.com/collections/5520441fc7f2b6dc3e1b
