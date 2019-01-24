@@ -1,0 +1,24 @@
+{
+  "name": "quicargo-trucks-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "seed": "node db/seeds",
+    "start:server": "nodemon",
+    "test": "node_modules/.bin/_mocha"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.6",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.3.0",
+    "supertest": "^3.0.0"
+  }
+}
